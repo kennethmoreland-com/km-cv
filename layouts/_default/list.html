@@ -1,5 +1,7 @@
 {{ partial "header.html" . }}
 
+<div id="page-content-wrapper">
+
 {{if not .IsHome }}
 <h1>{{ .Title | markdownify }}</h1>
 {{ end }}
