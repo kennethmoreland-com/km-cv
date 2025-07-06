@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="{{ "css/style.css" | relURL }}" />
     <link rel="stylesheet" href="{{ "css/fonts.css" | relURL }}" />
     <link rel="stylesheet" href="{{ "css/sidebar.css" | relURL }}" />
+    <style>
+      {{- with .Site.Params.SidebarWidth }}
+      @media (min-width:740px) {
+        #body-wrapper {
+          padding-left: {{ . }};
+        }
+        #sidebar-wrapper {
+          margin-left: -{{ . }};
+          width: {{ . }};
+        }
+      }
+      {{- end }}
+      {{- with .Site.Params.SidebarHeight }}
+      @media not (min-width:740px) {
+        #sidebar-wrapper {
+          height: {{ . }};
+        }
+      }
+      {{- end }}
+    </style>
     {{ partial "head_custom.html" . }}
   </head>
 
